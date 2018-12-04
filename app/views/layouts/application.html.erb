@@ -4,11 +4,14 @@
     <title>DalyPodcast</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    
+    <p class="notice"><%= notice %></p> <!-- displayed to user , and want it used on every page so inserted into applcation.html.erb -->
+    <p class="alert"><%= alert %></p>   <!-- displayed to user  -->
+    <%= yield %> <!-- where every other template gets rendered in -->
   </body>
 </html>
