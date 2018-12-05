@@ -1,0 +1,20 @@
+<div id="banner" class="podcasts_banner">
+		<h1>Create Listen Discover</h1>
+		<p class="banner_info">Your Podcast Platform</p>
+	</div>
+	
+	<div id="podcasts" class="clearfix">
+		<div class="wrapper">
+			<ul>
+			  <% @podcasts.each do |podcast| %> <!-- using the @podcasts method defined in podcasts_controller, Loop through all of the podcasts & for each podcast print out and run the code within the block -->
+			      <%= link_to podcast do %> <!-- Dynamic link allwoing user to access the podcast show page -->
+					<li>
+					    <h2><%= podcast.title %></h2> <!-- using the title from the podcast table -->
+						
+		</div>
+					</li>
+			      <% end %>
+			 <% end %>
+			</ul>
+	</div>
+</div>

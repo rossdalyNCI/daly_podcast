@@ -61,7 +61,8 @@
 			width: 75%;
 			line-height: 1.75;
 			margin: 0 auto 2rem auto;
-			color: darken($highlight, 10%);
+			font-weight: 500;
+			color: $white;
 		}
 		.subscribe_link{
 			font-size: .6rem;

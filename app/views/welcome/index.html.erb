@@ -5,12 +5,12 @@
 			<nav>
 				<ul>
 					<% unless podcast_signed_in? %> <!-- unless the podcast(user) is signed in) -->
-					<li><a href="#">Discover</a></li>
+					<li><%= link_to "Discover", podcasts_path %></li> <!-- dynmaic link to the podcasts#index -->
 					<li><%= link_to "Login", new_podcast_session_path %></li> <!-- creating a dynamic link using the new_podcast_session_path route, so the user can login -->
 					<li><%= link_to "Create a Podcast", new_podcast_registration_path %></li> <!-- creating a dynamic link using the new_podcast_registration_path route -->
 					<% else %> <!-- show the sign_out link -->
 					<li><a href="#">Dashboard</a></li>
-					<li><a href="#">Discover</a></li>
+					<li><%= link_to "Discover", podcasts_path %></li> <!-- dynmaic link to the podcasts#index -->
 					<li><%= link_to "Sign Out", destroy_podcast_session_path, method: :delete %></li> <!-- creating a dynamic link using the destroy_podcast_session_path route, so the user can logout -->
 					<% end %>
 				</ul>
@@ -19,7 +19,7 @@
 	</header>
 		<div class="wrapper_thin">
 			<h1>Create <span class="dot"></span> Listen <span class="dot"></span> Discover</h1>
-			<a href="#" class="button button_highlight">Explore</a>
+			<%= link_to "Discover", podcasts_path, class: "button button_highlight" %> <!-- dynmaic link to the podcasts#index -->
 			<%= link_to "Sign-Up", new_podcast_registration_path, class: "button button_highlight" %> <!-- creating a dynamic link using the new_podcast_registration_path route, so the user can sign-up -->
 		</div>
 	</div>

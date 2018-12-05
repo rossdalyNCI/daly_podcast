@@ -1,0 +1,26 @@
+<div id="podcast_show">
+			<div id="show_banner">
+				<div class="wrapper_thin">
+					<h1><%= @podcast.title %></h1> <!-- Using the @podcast method defined in the podcasts controller, finds by params of title -->
+					<p class="description"><%= @podcast.description %></p> <!-- Using the @podcast method defined in the podcasts controller, finds by params of description -->
+					<% unless @podcast.itunes.blank? %> <!-- only show the link, if it's not blank -->
+					<a href="<%= @podcast.itunes %>" class="subscribe_link">iTunes</a>  <!-- Using the @podcast method defined in the podcasts controller, finds by params of itunes-->
+					<% end %>
+					<% unless @podcast.twitter.blank? %> <!-- only show the link, if it's not blank -->
+					<a href="<%= @podcast.twitter %>" class="subscribe_link">Twitter</a>  <!-- Using the @podcast method defined in the podcasts controller, finds by params of twitter -->
+					<% end %>
+					<% unless @podcast.instagram.blank? %> <!-- only show the link, if it's not blank -->
+					<a href="<%= @podcast.instagram %>" class="subscribe_link">Instagram</a>  <!-- Using the @podcast method defined in the podcasts controller, finds by params of instagram -->
+					<% end %>
+				</div>
+			</div>
+			
+			<div id="breadcrumb">
+			    <%= link_to podcasts_path do %> <!-- dynamic link redirecting user back to podcasts index -->
+    				All Podcasts
+    				<span>/</span>
+    				Second City Kids Podcast
+			    <% end %>
+			</div>
+		
+</div>
