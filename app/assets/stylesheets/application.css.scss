@@ -112,11 +112,11 @@ $light: #EDEFF5;
 }
 
 .podcasts_banner{
-	background-image: url('../images/podcasts_banner3.jpg');
+	background-image: image-url("podcasts_banner3.jpg");
 }
 
 .login_banner{
-	background-image: url('../images/login_banner.jpg');
+	background-image: image-url("login_banner.jpg");
 }
 
 .pagination:before, .pagination:after{
@@ -181,5 +181,5 @@ input[type="email"], input[type="text"], input[type="password"], textarea {
 }
  @import 'normalize';
  @import 'welcome';
-// @import 'podcasts';
+ @import 'podcasts';
 // @import "https://fonts.googleapis.com/css?family=Raleway";

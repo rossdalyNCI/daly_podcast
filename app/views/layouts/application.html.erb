@@ -18,6 +18,25 @@
         <%= notice %>
       </p> 
     <% end %>
+    
+        <header id="main_header" class="clearfix">
+    		<div class="wrapper_deep">
+    			<%= link_to "Dalypodcast.ie", root_path, id: "logo" %> <!-- dynmaic link in the header, redirecting user back to root path -->
+    			<nav>
+    			<ul>
+    			  <% unless podcast_signed_in? %> <!-- unless the podcast(user) is signed in) -->
+    					<li><a href="#">Discover</a></li>
+    					<li><%= link_to "Login", new_podcast_session_path %></li> <!-- creating a dynamic link using the new_podcast_session_path route, so the user can login -->
+    					<li><%= link_to "Create a Podcast", new_podcast_registration_path %></li> <!-- creating a dynamic link using the new_podcast_registration_path route -->
+    					<% else %> <!-- show the sign_out link -->
+    					<li><a href="#">Dashboard</a></li>
+    					<li><a href="#">Discover</a></li>
+    					<li><%= link_to "Sign Out", destroy_podcast_session_path, method: :delete %></li> <!-- creating a dynamic link using the destroy_podcast_session_path route, so the user can logout -->
+    				<% end %>
+    			</ul>
+    			</nav>
+    		</div>
+    	</header>
     <%= yield %> <!-- where every other template gets rendered in -->
   </body>
 </html>
