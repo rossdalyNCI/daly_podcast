@@ -9,9 +9,15 @@
   </head>
 
   <body>
-    
-    <p class="notice"><%= notice %></p> <!-- displayed to user , and want it used on every page so inserted into applcation.html.erb -->
-    <p class="alert"><%= alert %></p>   <!-- displayed to user  -->
+    <% if alert %> <!-- if its an alert show the alert -->
+      <p class="alert"> <!-- displayed to user  -->
+        <%= alert %>
+        </p>
+    <% elsif notice %> <!-- if its a notice, show the notice -->
+      <p class="notice"> <!-- displayed to user , and want it used on every page so inserted into applcation.html.erb -->
+        <%= notice %>
+      </p> 
+    <% end %>
     <%= yield %> <!-- where every other template gets rendered in -->
   </body>
 </html>
