@@ -1,16 +1,36 @@
-<h1>New Episode Page</h1>
+<div id="podcast_show">
+    	<div id="show_banner">
+    		<div class="wrapper_thin">
+    			<h1>Second City Kids Podcast Dashboard</h1>
+    		</div>
+    	</div>
+    			
+    	<div id="links">
+    		<div class="wrapper_thin">
+    			<ul>
+    				<li><%= link_to "Episodes", root_path %></li> <!-- dynamic link for the episodes root path to the podcast#dashboard -->
+    				<li><%= link_to "New Episode", new_podcast_episode_path(@podcast), class: "current" %></li> <!-- dynamic link to new episode nested within a podcast, found in rake routes -->
+    				<li><%= link_to "Account Settings", edit_podcast_registration_path %></li> <!-- dynamic link to edit a podcast path -->
+    				<li><%= link_to "View Podcast", podcast_path(current_podcast) %></li> <!-- dynamic link to the podcast path of the current users podcast -->
+    			</ul>
+    		</div>
+    	</div>
     
-    <%= form_for ([@podcast, @episode]) do |f| %> <!-- Nested form, episode within podcast -->
-        <%= f.label :title %><br> <!-- Form title -->
-        <%= f.text_field :title %> <!-- Form title input area -->
-        <br>
-        <br>
-        
-        <%= f.label :description %><br> <!-- Form description -->
-        <%= f.text_area :description %> <!-- Form description input area -->
-        
-        <br>
-        <br>
-        
-        <%= f.submit %> <!-- Form submit button -->
-    <% end %>
+    
+    <div id="form">
+      <div class="wrapper_thin">    
+        <%= form_for ([@podcast, @episode]) do |f| %> <!-- Nested form, episode within podcast -->
+            <div class="field">
+                <%= f.label :title %><br> <!-- Form title -->
+                <%= f.text_field :title %> <!-- Form title input area -->
+            </div>
+            <div class="field">
+                <%= f.label :description %><br> <!-- Form description -->
+                <%= f.text_area :description %> <!-- Form description input area -->
+            </div>
+            
+            <%= f.submit class: "button button_highlight button_block" %> <!-- Form submit button -->
+        <% end %>
+      </div>
+    </div>
+</div>
