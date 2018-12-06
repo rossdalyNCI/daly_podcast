@@ -1,4 +1,6 @@
 class EpisodesController < ApplicationController
+    before_action :authenticate_podcast!, except: [:show] #if the user tries to access any other page of episodes, except for the show page, and they are NOT signed in, this devise action forwards user to login page
+    before_action :require_permission
     before_action :find_podcast # to find podcast
     before_action :find_episode, only: [:show, :edit, :update, :destroy] #to find episode
     
@@ -47,5 +49,12 @@ class EpisodesController < ApplicationController
     
     def find_episode
         @episode = Episode.find(params[:id]) # find an episode by its ID
+    end
+    
+    def require_permission # defining an action to prevent User1 from editing USer2 episodes
+        @podcast = Podcast.find(params[:podcast_id]) # find the podcast by podcastID
+        if current_podcast != @podcast # if the podcast(user) is not equal to the found podcast
+            redirect_to root_path, notice: "You do not have access to this page" #then redirect back to root path
+        end
     end
 end
