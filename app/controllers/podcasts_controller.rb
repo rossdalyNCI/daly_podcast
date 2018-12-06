@@ -5,5 +5,6 @@ class PodcastsController < ApplicationController
     
     def show # defining the action show
         @podcast = Podcast.find(params[:id]) # Find the podcast by the parameters of id
+        @episodes = Episode.where(podcast_id: @podcast).order("created_at DESC") # find the episode by podcast ID
     end
 end

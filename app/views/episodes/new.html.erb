@@ -1,0 +1,16 @@
+<h1>New Episode Page</h1>
+    
+    <%= form_for ([@podcast, @episode]) do |f| %> <!-- Nested form, episode within podcast -->
+        <%= f.label :title %><br> <!-- Form title -->
+        <%= f.text_field :title %> <!-- Form title input area -->
+        <br>
+        <br>
+        
+        <%= f.label :description %><br> <!-- Form description -->
+        <%= f.text_area :description %> <!-- Form description input area -->
+        
+        <br>
+        <br>
+        
+        <%= f.submit %> <!-- Form submit button -->
+    <% end %>
