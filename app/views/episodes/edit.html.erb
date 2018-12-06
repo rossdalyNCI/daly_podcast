@@ -9,7 +9,7 @@
     		<div class="wrapper_thin">
     			<ul>
     				<li><%= link_to "Episodes", root_path %></li> <!-- dynamic link for the episodes root path to the podcast#dashboard -->
-    				<li><%= link_to "New Episode", new_podcast_episode_path(@podcast), class: "current" %></li> <!-- dynamic link to new episode nested within a podcast, found in rake routes -->
+    				<li><%= link_to "New Episode", new_podcast_episode_path(@podcast) %></li> <!-- dynamic link to new episode nested within a podcast, found in rake routes -->
     				<li><%= link_to "Account Settings", edit_podcast_registration_path %></li> <!-- dynamic link to edit a podcast path -->
     				<li><%= link_to "View Podcast", podcast_path(current_podcast) %></li> <!-- dynamic link to the podcast path of the current users podcast -->
     			</ul>

@@ -1,0 +1,12 @@
+ <%= form_for ([@podcast, @episode]) do |f| %> <!-- Nested form, episode within podcast -->
+            <div class="field">
+                <%= f.label :title %><br> <!-- Form title -->
+                <%= f.text_field :title %> <!-- Form title input area -->
+            </div>
+            <div class="field">
+                <%= f.label :description %><br> <!-- Form description -->
+                <%= f.text_area :description %> <!-- Form description input area -->
+            </div>
+            
+            <%= f.submit class: "button button_highlight button_block" %> <!-- Form submit button -->
+        <% end %>
