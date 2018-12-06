@@ -7,6 +7,10 @@
                 <%= f.label :description %><br> <!-- Form description -->
                 <%= f.text_area :description %> <!-- Form description input area -->
             </div>
+            <div class="field">
+                <%= f.label :episode_thumbnail %><br> <!-- paperclip -->
+                <%= f.file_field :episode_thumbnail %> <!-- paperclip image upload area for episode -->
+            </div>
             
             <%= f.submit class: "button button_highlight button_block" %> <!-- Form submit button -->
         <% end %>

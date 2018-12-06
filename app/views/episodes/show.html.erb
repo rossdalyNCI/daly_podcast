@@ -27,7 +27,7 @@
 			
 			<div id="episode_content">
 				<div class="wrapper_thin">
-					<img src="#" alt="Second City Kids" class="current_episode_thumbnail">
+					<%= image_tag @episode.episode_thumbnail.url(:medium), class: "current_episode_thumbnail" %> <!-- paperclip -->
 					<h2><%= @episode.title %></h2> <!-- Loop through the episode content using the @episode method -->
 					<p class="description"><%= @episode.description %></p> <!-- Loop through the episode content using the @episode method -->
 				</div>
@@ -38,10 +38,13 @@
 			        <ul class="clearfix">
 			            <% @episodes.each do |episode| %> <!-- Loop through episodes -->
 			            <li class="clearfix">
-			               <div class="episode_overview">
-			                   <h2><%= link_to episode.title, podcast_episode_path(@podcast, episode) %></h2> <!-- a link to episode title, using the podcast episode path in the episodes controller -->
-								<p class="description"><%= truncate(episode.description, length: 150) %></p> <!-- getting the episode description using the truncate method to limit the characters to 150 -->
-			               </div>
+			            	<div class="episode_thumbnail">
+			            		<%= image_tag episode.episode_thumbnail.url(:medium) %> <!-- paperclip -->
+			            	</div>
+				               <div class="episode_overview">
+				                   <h2><%= link_to episode.title, podcast_episode_path(@podcast, episode) %></h2> <!-- a link to episode title, using the podcast episode path in the episodes controller -->
+									<p class="description"><%= truncate(episode.description, length: 150) %></p> <!-- getting the episode description using the truncate method to limit the characters to 150 -->
+				               </div>
 			            </li>
 			            <% end %> <!-- end Loop -->
 			        </ul>

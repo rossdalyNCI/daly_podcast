@@ -26,6 +26,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.5'
+gem 'paperclip', '~> 6.1' # Paperclip Gem
 
 
 # Use Capistrano for deployment
