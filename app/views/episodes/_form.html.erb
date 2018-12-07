@@ -12,5 +12,10 @@
                 <%= f.file_field :episode_thumbnail %> <!-- paperclip image upload area for episode -->
             </div>
             
+            <div class="field">
+                <%= f.label :mp3 %><br> <!-- paperclip -->
+                <%= f.file_field :mp3 %> <!-- paperclip mp3 upload area for episode -->
+            </div>
+            
             <%= f.submit class: "button button_highlight button_block" %> <!-- Form submit button -->
         <% end %>
