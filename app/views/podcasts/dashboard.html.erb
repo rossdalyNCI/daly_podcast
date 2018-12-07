@@ -1,43 +1,44 @@
-<div id="podcast_show">
-	<div id="show_banner">
-		<div class="wrapper_thin">
-			<h1><%= @podcast.title %></h1>
+<%= render 'layouts/header'; %> <!-- renders the header partial -->
+	<div id="podcast_show">
+		<div id="show_banner">
+			<div class="wrapper_thin">
+				<h1><%= @podcast.title %></h1>
+			</div>
 		</div>
-	</div>
-			
-	<div id="links">
+				
+		<div id="links">
+			<div class="wrapper_thin">
+				<ul>
+					<li class="current">Episodes</li>
+					<li><%= link_to "New Episode", new_podcast_episode_path(@podcast) %></li> <!-- dynamic link to new episode nested within a podcast, found in rake routes -->
+					<li><%= link_to "Account Settings", edit_podcast_registration_path %></li> <!-- dynamic link to edit a podcast path -->
+					<li><%= link_to "View Podcast", podcast_path(current_podcast) %></li> <!-- dynamic link to the podcast path of the current users podcast -->
+				</ul>
+			</div>
+		</div>
+		
+		<div id="episodes">
 		<div class="wrapper_thin">
-			<ul>
-				<li class="current">Episodes</li>
-				<li><%= link_to "New Episode", new_podcast_episode_path(@podcast) %></li> <!-- dynamic link to new episode nested within a podcast, found in rake routes -->
-				<li><%= link_to "Account Settings", edit_podcast_registration_path %></li> <!-- dynamic link to edit a podcast path -->
-				<li><%= link_to "View Podcast", podcast_path(current_podcast) %></li> <!-- dynamic link to the podcast path of the current users podcast -->
+			<ul class="clearfix">
+			   <% @episodes.each do |episode| %> <!-- loop through and display all the created episodes -->
+				<li class="clearfix">
+					<div class="episode_thumbnail">
+						<%= image_tag episode.episode_thumbnail.url(:medium) %> <!-- paperclip -->
+					</div>
+				    <div class="episode_overview">
+				        <h2><%= link_to episode.title, podcast_episode_path(@podcast, episode) %></h2> <!-- link to episode title, using the podcast episode path in the episodes controller -->
+				        <p class="description"><%= truncate(episode.description, lenght: 160) %></p> <!-- getting the episode description using the truncate method limiting characters displayed -->
+				        <div class="function_links">
+				            <%= link_to "Edit", edit_podcast_episode_path(@podcast, episode) %> <!-- dynamic link - edit podcast episode -->
+				            <%= link_to "Delete", podcast_episode_path(@podcast, episode), method: :delete, data: {confirm: "Are you sure?"} %> <!-- dynamic link to delete podcast episode using delete method -->
+				        </div>
+				    </div>
+				</li>
+				<% end %> <!-- end loop -->
 			</ul>
 		</div>
 	</div>
-	
-	<div id="episodes">
-	<div class="wrapper_thin">
-		<ul class="clearfix">
-		   <% @episodes.each do |episode| %> <!-- loop through and display all the created episodes -->
-			<li class="clearfix">
-				<div class="episode_thumbnail">
-					<%= image_tag episode.episode_thumbnail.url(:medium) %> <!-- paperclip -->
-				</div>
-			    <div class="episode_overview">
-			        <h2><%= link_to episode.title, podcast_episode_path(@podcast, episode) %></h2> <!-- link to episode title, using the podcast episode path in the episodes controller -->
-			        <p class="description"><%= truncate(episode.description, lenght: 160) %></p> <!-- getting the episode description using the truncate method limiting characters displayed -->
-			        <div class="function_links">
-			            <%= link_to "Edit", edit_podcast_episode_path(@podcast, episode) %> <!-- dynamic link - edit podcast episode -->
-			            <%= link_to "Delete", podcast_episode_path(@podcast, episode), method: :delete, data: {confirm: "Are you sure?"} %> <!-- dynamic link to delete podcast episode using delete method -->
-			        </div>
-			    </div>
-			</li>
-			<% end %> <!-- end loop -->
-		</ul>
 	</div>
-</div>
-</div>
-
-<%= will_paginate @episodes %> <!-- pagination gem calling on the podcasts -->
+	
+	<%= will_paginate @episodes %> <!-- pagination gem calling on the podcasts -->
 
