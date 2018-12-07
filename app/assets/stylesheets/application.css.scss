@@ -81,6 +81,8 @@ $light: #EDEFF5;
 			font-weight: 700;
 			color: $highlight;
 			text-decoration: none;
+			font-size: 1.05em;
+			letter-spacing: 2px;
 		}
 		nav{
 			float: right;
@@ -93,8 +95,21 @@ $light: #EDEFF5;
 					a{
 						color: $highlight;
 						text-decoration: none;
+						border-bottom: 2px solid transparent;
+						font-size: 1.05em;
+						letter-spacing: 2px;
+						text-transform: uppercase;
+						-webkit-transition: 700ms all ease;
+						-moz-transition: 700ms all ease;
+						-ms-transition: 700ms all ease;
+						-o-transition: 700ms all ease;
+						transition: 700ms all ease;
 					}
 				}
+				li a:hover{
+						color: #25616e;
+						border-bottom: 2px solid #25616e;
+					}
 			}
 		}
 }

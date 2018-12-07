@@ -18,17 +18,17 @@
 </div>
 <div id="form">
   <div class="wrapper_thin">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %> <!-- Devise form -->
       <%= devise_error_messages! %>
       
       <div class="field">
-        <%= f.label :title %><br />
-        <%= f.text_field :title, autofocus: true %>
+        <%= f.label :title %><br /> <!-- label for episode title -->
+        <%= f.text_field :title, autofocus: true %> <!-- episodetitle input field -->
       </div>
       
       <div class="field">
-        <%= f.label :description %><br />
-        <%= f.text_area :description %>
+        <%= f.label :description %><br /> <!-- label for episode description -->
+        <%= f.text_area :description %> <!-- episode description input field -->
       </div>
       
       <div class="field">
@@ -37,34 +37,34 @@
       </div>
     
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email" %>
+        <%= f.label :email %><br /> <!-- label for user email -->
+        <%= f.email_field :email, autocomplete: "email" %> <!-- email input field -->
       </div>
     
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %> <!-- Devise source -->
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
       
       <h2>Links</h2>
       
       <div class="field">
-        <%= f.label :itunes %><br />
-        <%= f.text_field :itunes %>
+        <%= f.label :itunes %><br /> <!-- label for itunes link -->
+        <%= f.text_field :itunes %> <!-- itunes link input field -->
       </div>
       
       <div class="field">
-        <%= f.label :twitter %><br />
-        <%= f.text_field :twitter %>
+        <%= f.label :twitter %><br /> <!-- label for twitter link -->
+        <%= f.text_field :twitter %> <!-- twitter link input field -->
       </div>
       
       <div class="field">
-        <%= f.label :instagram %><br />
-        <%= f.text_field :instagram %>
+        <%= f.label :instagram %><br /> <!-- label for instagram link -->
+        <%= f.text_field :instagram %> <!-- instagram link input field -->
       </div>
     
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br /> <!-- Label for podcast password -->
+        <%= f.password_field :password, autocomplete: "new-password" %> <!-- password input field -->
         <% if @minimum_password_length %>
           <br />
           <em><%= @minimum_password_length %> characters minimum</em>
@@ -72,22 +72,22 @@
       </div>
     
       <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.label :password_confirmation %><br /> <!-- Label for podcast password confirmation -->
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %> <!-- confirm password input field -->
       </div>
     
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br /> <!-- Label for podcast  current password -->
+        <%= f.password_field :current_password, autocomplete: "current-password" %> <!-- current password input field -->
       </div>
     
       <div class="actions">
-        <%= f.submit "Update", class: "button button_highlight button_block" %>
+        <%= f.submit "Update", class: "button button_highlight button_block" %> <!-- Form Submit Update button -->
       </div>
-    <% end %>
+    <% end %> <!-- End Form -->
     
     <h3>Cancel my account</h3>
     
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p> <!-- Devise delete method -->
   </div>
 </div>

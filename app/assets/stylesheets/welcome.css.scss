@@ -13,6 +13,8 @@
 			font-weight: 700;
 			color: $white;
 			text-decoration: none;
+			font-size: 1.05em;
+			letter-spacing: 2px;
 		}
 		nav{
 			float: right;
@@ -25,11 +27,24 @@
 					a{
 						color: $white;
 						text-decoration: none;
+						border-bottom: 2px solid transparent;
+						font-size: 1.05em;
+						letter-spacing: 2px;
+						text-transform: uppercase;
+						-webkit-transition: 700ms all ease;
+						-moz-transition: 700ms all ease;
+						-ms-transition: 700ms all ease;
+						-o-transition: 700ms all ease;
+						transition: 700ms all ease;
+					}
+				}
+				li a:hover{
+						color: $highlight;
+						border-bottom: 2px solid $highlight;
 					}
 				}
 			}
 		}
-	}
 	h1{
 		color: $white;
 		font-size: 3.5rem;

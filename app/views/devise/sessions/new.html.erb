@@ -6,26 +6,26 @@
   	<div id="form">
   	  <div class="wrapper_thin">
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %> <!-- Devise form -->
         <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :email %><br /> <!-- label for user email -->
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %> <!-- email input field -->
         </div>
       
         <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.label :password %><br /> <!-- Label for user password -->
+          <%= f.password_field :password, autocomplete: "current-password" %> <!-- password input field -->
         </div>
       
         <% if devise_mapping.rememberable? -%>
           <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.check_box :remember_me %> <!-- Devise tick box for remember user -->
+            <%= f.label :remember_me %> 
           </div>
-        <% end -%>
+        <% end -%> <!-- End Form -->
       
         <div class="actions">
-          <%= f.submit "Log in", class: "button button_highlight button_block" %>
+          <%= f.submit "Log in", class: "button button_highlight button_block" %> <!-- Form Submit Login button -->
         </div>
       <% end %>
     </div>
