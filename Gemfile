@@ -28,6 +28,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.5'
 gem 'paperclip', '~> 6.1' # Paperclip Gem
+gem 'will_paginate', '~> 3.1', '>= 3.1.6' # Pagination gem
 
 
 # Use Capistrano for deployment
