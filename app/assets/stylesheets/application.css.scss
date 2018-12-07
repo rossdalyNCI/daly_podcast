@@ -94,15 +94,24 @@ $light: #EDEFF5;
 		text-align: center;
 		color: $white;
 		font-size: 3rem;
+		text-shadow: -2px 2px $highlight;
 		font-weight: 300;
 		letter-spacing: 1px;
 		margin: 0;
 		padding: 6rem 0 0 0;
 	}
+	.dot {
+		height: 15px;
+		width: 15px;
+		background-color: $white;
+		border-radius: 50%;
+		display: inline-block;
+		}
 	.banner_info{
 		color: $white;
 		text-align: center;
 		font-size: 3rem;
+		text-shadow: -2px 2px $highlight;
 		font-weight: 300;
 		letter-spacing: 1px;
 		padding: 0 0 4rem 0;
