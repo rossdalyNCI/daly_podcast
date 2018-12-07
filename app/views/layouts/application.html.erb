@@ -10,18 +10,32 @@
 
   <body>
     <% if alert %> <!-- if its an alert show the alert -->
-      <p class="alert"> <!-- displayed to user  -->
-        <%= alert %>
-        </p>
+      <div id="alerts_wrapper">
+          <p class="alert"> <!-- displayed to user  -->
+            <%= alert %>
+          </p>
+      </div>
     <% elsif notice %> <!-- if its a notice, show the notice -->
-      <p class="notice"> <!-- displayed to user , and want it used on every page so inserted into applcation.html.erb -->
-        <%= notice %>
-      </p> 
+      <div id="alerts_wrapper">
+          <p class="notice"> <!-- displayed to user, and want it used on every page so inserted into applcation.html.erb -->
+            <%= notice %>
+          </p>
+      </div>
     <% end %>
     <% unless current_page?(root_path) %> <!--unless the current page is the root path -->
       <%= render 'layouts/header'; %> <!-- renders the header partial -->
     <% end %> <!-- end -->
     	
     <%= yield %> <!-- where every other template gets rendered in -->
+    
+    <script>
+      $(document).ready(function(){
+        setTimeout(function() {
+        $('#alerts_wrapper').fadeOut("slow", function() { // find by ID & fade out slow
+          $this.remove(); // remove the function after a set amount of time
+        });
+      }, 4500 );
+      });
+      </script>
   </body>
 </html>
